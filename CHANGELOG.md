@@ -2,7 +2,7 @@
 
 All notable changes to Outpost Beacon are documented here.
 
-## [1.4] — Unreleased
+## [1.4] — 2026-06-16
 
 ### Added
 - **Service Groups** — organize services into named, collapsible groups on the dashboard. Assign a group from Settings → Scripts (or the `OUTPOST_GROUP` directive), drag to reorder groups, and rename or remove a group without deleting its scripts. The dashboard now scales to large service lists, with a pinned at-a-glance health summary that stays visible as you scroll and a per-group summary on collapsed headers.
@@ -11,6 +11,7 @@ All notable changes to Outpost Beacon are documented here.
 - **Quiet Hours & Dark-Wake Awareness** — silence notifications during a daily time window such as overnight, with an option to also pause checks. Checks triggered when your Mac briefly wakes in the background no longer produce spurious alerts.
 - **Resizable Dashboard** — drag to resize the dashboard panel. Its size is remembered across launches, while it always reappears centered under the menu bar icon.
 - **Configurable Data Retention** — choose how long uptime history and incident timeline events are kept (from 7 days to forever), see the current database size, and clear all monitoring history on demand.
+- **Script validation warnings** — the editor now flags a metadata directive left after code on the same line, and a dependency that names a service no loaded script defines.
 
 ### Changed
 - The dashboard's at-a-glance health summary is more compact, so every status fits cleanly even on smaller panels.
