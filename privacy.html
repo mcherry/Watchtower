@@ -32,7 +32,7 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="effective">Effective date: May 22, 2026</p>
+<p class="effective">Effective date: June 15, 2026</p>
 
 <p>Outpost Beacon is a macOS menu bar application developed by Mike Cherry. This policy explains what data the app handles and how it is stored.</p>
 
@@ -53,17 +53,16 @@
 <ul>
   <li><strong>Service health checks</strong> — the app connects to URLs and hosts that <em>you</em> configure in your check scripts (e.g., status pages, HTTP endpoints, TCP ports). These requests are made directly from your device; no proxy or intermediary server is involved.</li>
   <li><strong>AI script assistant</strong> — this optional, off-by-default feature drafts a check script from a description you type. When you use the on-device model (Apple Intelligence), the text is processed entirely on your Mac and nothing leaves your device. If you instead configure your own AI server (such as a local or remote OpenAI-compatible/Ollama endpoint), the description you enter is sent to the server <em>you</em> chose. The developer does not operate any AI service and never receives your prompts or generated scripts.</li>
-  <li><strong>Update checks</strong> — if automatic update checking is enabled, the app periodically fetches a small version file from GitHub (<code>raw.githubusercontent.com</code>) to determine whether a newer release is available. No identifying information is sent with this request beyond what the operating system includes by default.</li>
 </ul>
-<p>The app does not operate any servers and does not receive any data from your device.</p>
+<p>The app does not operate any servers and does not receive any data from your device. Software updates are delivered through the Mac App Store; the app does not contact the developer to check for updates.</p>
 
 <h2>Third-Party Services</h2>
-<p>Outpost Beacon does not integrate any third-party SDKs, analytics frameworks, or advertising networks. The only third-party service contacted is GitHub, solely for the optional update check described above.</p>
+<p>Outpost Beacon does not integrate any third-party SDKs, analytics frameworks, or advertising networks. The app contacts only the endpoints you configure yourself — the hosts in your check scripts and, if you enable the AI script assistant, the AI server you specify.</p>
 
 <h2>macOS Permissions</h2>
 <p>The app runs in the macOS App Sandbox and requests only:</p>
 <ul>
-  <li><strong>Outgoing network connections</strong> — required to perform health checks and update checks.</li>
+  <li><strong>Outgoing network connections</strong> — required to perform the service health checks you configure.</li>
   <li><strong>User-selected file access</strong> — required to export uptime reports (CSV/PDF) to a location you choose via a save dialog.</li>
 </ul>
 <p>The app may also request permission to deliver macOS notifications if you enable status change alerts.</p>

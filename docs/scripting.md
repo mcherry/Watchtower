@@ -21,6 +21,10 @@ Add comment directives at the top of your script to configure how Outpost Beacon
 | `// OUTPOST_NAME = "My Service"` | No | Display name (defaults to filename) |
 | `// OUTPOST_URL = "https://..."` | No | Status page URL for the service |
 | `// OUTPOST_INTERVAL = "60"` | No | Custom polling interval in seconds (minimum 30) |
+| `// OUTPOST_ICON = "cloud.fill"` | No | SF Symbol name for the service icon (or use the icon picker in the editor) |
+| `// OUTPOST_COLOR = "teal"` | No | Icon color: red, blue, green, orange, purple, teal, pink, indigo, mint, yellow, brown, cyan, gray |
+| `// OUTPOST_GROUP = "Production"` | No | Group services together on the dashboard under a named, collapsible section |
+| `// OUTPOST_DEPENDS = "GitHub, AWS"` | No | Comma-separated display names of services this one depends on; a degraded dependency flags this service as impacted |
 
 ## Available Functions
 

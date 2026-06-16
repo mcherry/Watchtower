@@ -10,17 +10,23 @@ A macOS menu bar app that monitors the health of key infrastructure services at 
 
 - **Menu bar status icon** — changes color and shape to reflect overall service health
 - **Status dashboard** — floating panel shows all monitored services with component-level detail
+- **Service groups** — organize services into named, collapsible groups; the dashboard scales to large service lists with a pinned at-a-glance health summary
+- **Resizable dashboard** — drag to resize the panel; it remembers its size and always reappears centered under the menu bar icon
 - **Dashboard pinning** — pin the dashboard to keep it visible when clicking outside
 - **Service drill-down** — click any service to see components, active incidents, and recent event history
+- **Service dependencies** — declare what a service relies on and see at a glance when a degraded dependency puts it at risk
 - **Downtime duration** — non-operational services show how long they've been in their current state
 - **Global keyboard shortcut** — configurable hotkey to toggle the dashboard
 - **Launch at Login** — optional automatic startup when you log in
 - **Background polling** — refreshes service status on a configurable interval, with optional per-script intervals
 - **macOS notifications** — opt-in alerts when a service degrades or recovers
+- **Quiet hours** — silence notifications during a daily time window, such as overnight, with an option to also pause checks
 - **Response time tracking** — measures and displays service response time
 - **Response time alerts** — set per-service response time thresholds and get notified when a service gets too slow
 - **Webhook & automation** — trigger webhooks, Slack, or Discord messages on status changes and response time breaches, with self-signed certificate support for internal services
 - **Uptime history** — opt-in graphical timeline showing historical uptime and response times per service
+- **Incident timeline** — a chronological feed of service status changes with how long each state lasted, grouped by day
+- **Configurable data retention** — choose how long history is kept, see the current database size, and clear monitoring history on demand
 - **Uptime report export** — export uptime data as CSV or PDF
 - **Custom status checks** — write JavaScript scripts to monitor any service using the built-in API
 - **AI script assistant** (Beta) — describe a check in plain language and have a starting script drafted for you, either fully on-device with Apple Intelligence or via your own local/remote AI server; you review and edit it before it's used
@@ -72,6 +78,8 @@ Outpost Beacon runs JavaScript check scripts using Apple's built-in JavaScriptCo
 | `// OUTPOST_INTERVAL = "60"` | No | Custom polling interval in seconds (minimum 30) |
 | `// OUTPOST_ICON = "cloud.fill"` | No | SF Symbol name for the service icon in the dashboard. Use the icon picker in the script editor or any [SF Symbol name](https://developer.apple.com/sf-symbols/). |
 | `// OUTPOST_COLOR = "teal"` | No | Icon color. Options: red, blue, green, orange, purple, teal, pink, indigo, mint, yellow, brown, cyan, gray. |
+| `// OUTPOST_GROUP = "Production"` | No | Group services together on the dashboard under a named, collapsible section. Also assignable from Settings → Scripts. |
+| `// OUTPOST_DEPENDS = "GitHub, AWS"` | No | Comma-separated display names of services this one depends on. When a dependency is degraded, this service is flagged as impacted. |
 
 ### Available Functions
 
