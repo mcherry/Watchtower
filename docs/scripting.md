@@ -40,6 +40,7 @@ Add comment directives at the top of your script to configure how Outpost Beacon
 | `fetchHeaders(url)` | `{success, statusCode, headers, error}` | Inspect HTTP response headers (HEAD by default; pass `{method: "GET"}` to use GET). Header names are lowercased. |
 | `fetchAndHash(url)` | `{success, statusCode, hash, byteCount, error}` | SHA-256 hash of the response body, for detecting content changes |
 | `bodyContains(url, expected)` | `{success, statusCode, contains, error}` | Whether the response body contains a substring (case-sensitive) |
+| `fetchRequest(url, options)` | `{success, status, ok, headers, body, json, error}` | Send a request with a custom `method`, `headers`, and `body` (GET/POST/PUT/PATCH/DELETE). A string body is sent as-is; an object body is JSON-encoded with a default `Content-Type` unless you set one. |
 
 ### Check Helpers
 
@@ -142,6 +143,31 @@ if (res.status === 503) {
     output({ status: "operational" });
 } else {
     output({ status: "unknown" });
+}
+```
+
+### POST Request (GraphQL or JSON API)
+
+Use `fetchRequest()` when a check needs a method and body — for example, a GraphQL
+health query or a JSON-RPC call. The result is structured, so you branch on
+`result.success` and `result.ok` instead of using try/catch.
+
+```javascript
+// OUTPOST_NAME = "GraphQL API"
+// OUTPOST_URL = "https://api.example.com"
+
+var res = fetchRequest("https://api.example.com/graphql", {
+    method: "POST",
+    headers: { "Authorization": "Bearer " + "TOKEN" },
+    body: { query: "{ health { status } }" }   // object body is JSON-encoded
+});
+
+if (!res.success || !res.ok) {
+    output({ status: "major_outage" });
+} else if (res.json && res.json.data && res.json.data.health.status === "ok") {
+    output({ status: "operational" });
+} else {
+    output({ status: "degraded" });
 }
 ```
 

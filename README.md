@@ -15,6 +15,9 @@ A macOS menu bar app that monitors the health of key infrastructure services at 
 - **Dashboard pinning** — pin the dashboard to keep it visible when clicking outside
 - **Service drill-down** — click any service to see components, active incidents, and recent event history
 - **Service dependencies** — declare what a service relies on and see at a glance when a degraded dependency puts it at risk
+- **Per-service mute** — silence a single service during planned maintenance; it keeps polling and recording but stops alerting and drops out of the menu bar health signal
+- **Check now** — re-poll a single service on demand instead of waiting for the next cycle
+- **Copy status summary** — copy a plain-text health snapshot (all services or one, optionally with incidents) to paste into chat or a ticket
 - **Downtime duration** — non-operational services show how long they've been in their current state
 - **Global keyboard shortcut** — configurable hotkey to toggle the dashboard
 - **Launch at Login** — optional automatic startup when you log in
@@ -29,8 +32,9 @@ A macOS menu bar app that monitors the health of key infrastructure services at 
 - **Configurable data retention** — choose how long history is kept, see the current database size, and clear monitoring history on demand
 - **Uptime report export** — export uptime data as CSV or PDF
 - **Custom status checks** — write JavaScript scripts to monitor any service using the built-in API
+- **HTTP requests with a body** — `fetchRequest()` sends GET/POST/PUT/PATCH/DELETE with custom headers and a body for API, GraphQL, and authenticated checks
 - **AI script assistant** (Beta) — describe a check in plain language and have a starting script drafted for you, either fully on-device with Apple Intelligence or via your own local/remote AI server; you review and edit it before it's used
-- **Built-in script editor** — write and debug check scripts with syntax highlighting, code folding, inline validation warnings, auto-completion, hover API docs, a network request log, templates, and a run console
+- **Built-in script editor** — write and debug check scripts with syntax highlighting, code folding, inline validation warnings, auto-completion, hover API docs, a snippet palette (⌘⇧P), a network request log, templates, and a run console
 - **Dark mode support** — adapts to system appearance
 
 <p align="center">

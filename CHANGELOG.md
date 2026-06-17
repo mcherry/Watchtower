@@ -2,6 +2,23 @@
 
 All notable changes to Outpost Beacon are documented here.
 
+## [1.5] — Unreleased
+
+### Added
+- **HTTP requests with a method and body** — the new `fetchRequest(url, options)` function sends GET, POST, PUT, PATCH, or DELETE requests with custom headers and a request body, so checks can probe API, GraphQL, and authenticated endpoints. It returns a structured `{ success, status, ok, headers, body, json, error }` result.
+- **Snippet Palette** — press ⌘⇧P in the script editor to insert common check patterns from a searchable palette, then Tab through the placeholders to fill them in.
+- **Per-service mute (maintenance mode)** — temporarily silence a single service (for an hour, 8 hours, until tomorrow, or indefinitely) so it stops sending notifications and automations and drops out of the menu bar health signal during planned maintenance, while still polling and recording history. A muted service shows a badge with the time remaining.
+- **Check Now** — re-poll a single service immediately from its row or detail view, instead of waiting for the next cycle or refreshing every service.
+- **Copy Status Summary** — copy a clean plain-text snapshot of service health to the clipboard for pasting into chat or a ticket — every service or just one, optionally including active incident details.
+- **Incident timeline export** — export the incident timeline as CSV or PDF, matching the uptime history export.
+
+### Fixed
+- The floating dashboard panel no longer shows window control buttons.
+- The icon and color picker in the script editor no longer clips its color swatches.
+
+### Security
+- Continued input validation and hardening across the new request function, status summaries, and report exports.
+
 ## [1.4] — 2026-06-16
 
 ### Added
