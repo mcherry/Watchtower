@@ -1,1 +1,4 @@
 .DS_Store
+
+# Local staging copy of the GitHub wiki (the wiki is its own repo)
+wiki/
