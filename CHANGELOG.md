@@ -2,7 +2,7 @@
 
 All notable changes to Outpost Beacon are documented here.
 
-## [1.5] — Unreleased
+## [1.5] — 2026-06-18
 
 ### Added
 - **HTTP requests with a method and body** — the new `fetchRequest(url, options)` function sends GET, POST, PUT, PATCH, or DELETE requests with custom headers and a request body, so checks can probe API, GraphQL, and authenticated endpoints. It returns a structured `{ success, status, ok, headers, body, json, error }` result.
